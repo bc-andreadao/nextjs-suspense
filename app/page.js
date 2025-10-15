@@ -1,18 +1,16 @@
-import ProductData from "@/src/product-data";
+import { ProductList } from "@/vibes/soul/sections/product-list";
+
+import defaultProducts from "@/src/product-data";
 
 export default async function Home() {
-  const Products = await new Promise((resolve) =>
-    setTimeout(() => resolve(ProductData), 5000)
+  const products = await new Promise((resolve) =>
+    setTimeout(() => resolve(defaultProducts), 5000)
   );
 
   return (
-    <>
-      <h1 className="text-3xl">Products</h1>
-      <ul>
-        {Products.map((product) => (
-          <li key={product.id}>{product.name}</li>
-        ))}
-      </ul>
-    </>
+    <div className="flex flex-col items-center max-w-7xl mx-auto px-4">
+      <h1 className="text-3xl text-center mb-8">Products</h1>
+      <ProductList products={products} />
+    </div>
   );
 }
