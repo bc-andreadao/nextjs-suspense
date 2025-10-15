@@ -15,7 +15,7 @@ async function fetchProductList() {
 export default function Home() {
   return (
     <>
-      <h1 className="m-8">Products</h1>
+      <h1 className="text-3xl m-8">Products</h1>
       <Suspense fallback={<div>Loading products...</div>}>
         {fetchProductList()}
       </Suspense>
