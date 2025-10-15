@@ -8,9 +8,9 @@ export default async function Home() {
   );
 
   return (
-    <div className="">
+    <>
       <h1 className="text-3xl m-8">Products</h1>
       <ProductList products={products} />
-    </div>
+    </>
   );
 }
