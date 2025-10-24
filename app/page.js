@@ -12,16 +12,19 @@ async function Products({ delay }) {
   return <ProductList products={products} />;
 }
 
+function Fallback() {
+  return <div className="m-16">Loading products...</div>;
+}
+
 export default function Home() {
   return (
     <>
       <h1 className="text-3xl m-8">Products</h1>
-      <Suspense fallback={<div>Loading products...</div>}>
+      <Suspense fallback={<Fallback />}>
         <Products delay={2000} />
-      </Suspense>
-
-      <Suspense fallback={<div>Loading products...</div>}>
-        <Products delay={5000} />
+        <Suspense fallback={<Fallback />}>
+          <Products delay={5000} />
+        </Suspense>
       </Suspense>
     </>
   );
