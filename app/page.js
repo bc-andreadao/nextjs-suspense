@@ -4,7 +4,7 @@ import { ProductList } from "@/vibes/soul/sections/product-list";
 
 import defaultProducts from "@/src/product-data";
 
-async function fetchProductList(delay) {
+async function Products({ delay }) {
   const products = await new Promise((resolve) =>
     setTimeout(() => resolve(defaultProducts), delay)
   );
@@ -17,11 +17,11 @@ export default function Home() {
     <>
       <h1 className="text-3xl m-8">Products</h1>
       <Suspense fallback={<div>Loading products...</div>}>
-        {fetchProductList(2000)}
+        <Products delay={2000} />
       </Suspense>
 
       <Suspense fallback={<div>Loading products...</div>}>
-        {fetchProductList(5000)}
+        <Products delay={5000} />
       </Suspense>
     </>
   );
