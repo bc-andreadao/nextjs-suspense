@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 
 import { ProductList } from "@/vibes/soul/sections/product-list";
+import { Fallback } from "@/components/fallback";
 
 import defaultProducts from "@/src/product-data";
 
@@ -10,10 +11,6 @@ async function Products({ delay }) {
   );
 
   return <ProductList products={products} />;
-}
-
-function Fallback() {
-  return <div className="m-16">Loading products...</div>;
 }
 
 export default function Home() {
